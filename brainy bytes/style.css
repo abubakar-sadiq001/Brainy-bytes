@@ -1,0 +1,238 @@
+:root {
+    --body-bg-color_1:  #FAFAFF;
+    --body-bg-color_2: rgb(212, 228, 250);
+    --header-bg-color: rgb(228, 252, 247);
+    --header-bg-color_2: rgb(70, 116, 244);
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+@font-face {
+    font-family: "MyCustomFonts";
+    src: url("./assets/fonts/FacultyGlyphic-Regular.ttf");
+}
+body {
+    background-color: var(--body-bg-color_1);
+    font-family: "MyCustomFonts", sans-serif;
+}
+main {
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto 0px auto;
+}
+header {
+    background: var(--header-bg-color_2);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.show-flx {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 8px;
+}
+.show-flx .logo img {
+    width: 70px;
+}
+/* Light mode icon */
+.show-flx .light {
+    color: #fff;
+    cursor: pointer;
+    width: 50px;
+} 
+/* Dark mode icon */
+.show-flx .dark {
+    color: #fff;
+    cursor: pointer;
+    width: 50px;
+    display: none;
+} 
+.unhidden {
+    display: block;
+}
+.container {
+    background-color: var(--body-bg-color_2);
+    padding: 15px 10px;
+}
+.container .operator-types {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: proximity;
+    gap: 10px;
+}
+.operator-types .operators {
+    background-color: rgb(228, 252, 247);
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 15px 15px;
+    font-style: italic;
+    border: 1px solid var(--header-bg-color_2);
+    cursor: pointer;
+}
+.operators a {
+    text-decoration: none;
+    color: #0c6832;
+    font-size: 16px;
+}
+.addition-contents {
+    background-color: rgba(70, 116, 244, 0.15);
+    border-radius: 4px;
+    margin: 15px 0px 0px 0px;
+    padding: 0px 5px;
+}
+.subtract-contents {
+    background-color: rgba(70, 116, 244, 0.15);
+    border-radius: 4px;
+    margin: 15px 0px 0px 0px;
+    padding: 0px 5px;
+
+}
+/* add */
+.align-center {
+    text-align: center;
+    padding: 20px 0px 5px 0px;
+    color: rgb(70, 116, 244);
+    color: rgb(28, 184, 117);
+    font-style: italic;
+    font-weight: normal;
+    word-spacing: 3px;
+}
+/* subtract heading */
+.align-center--subtrct {
+    text-align: center;
+    padding: 20px 0px 5px 0px;
+    color: rgb(70, 116, 244);
+    color: rgb(28, 184, 117);
+    font-style: italic;
+    font-weight: normal;
+    word-spacing: 3px;
+}
+.rank-score {
+    font-size: 1.5rem;
+    color: rgb(28, 184, 117);
+    padding: 15px 0px 0px 10px;
+}
+.inputs {
+    text-align: center;
+    padding: 20px 0px;
+}
+/* add input */
+.inputs #myInput {
+    max-width: 100%;
+    width: 400px;
+    border: 2px solid rgb(28, 184, 117);
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 20px;
+    outline: none;
+    margin-bottom: 10px;
+}
+/* subtact input */
+.inputs #subtractInput {
+    max-width: 100%;
+    width: 400px;
+    border: 2px solid rgb(28, 184, 117);
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 20px;
+    outline: none;
+    margin-bottom: 10px;
+}
+/* Multiplication input */
+.inputs #multiplyInput {
+    max-width: 100%;
+    width: 400px;
+    border: 2px solid rgb(28, 184, 117);
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 20px;
+    outline: none;
+    margin-bottom: 10px;
+}
+/* Division input */
+.inputs #divisionInput {
+    max-width: 100%;
+    width: 400px;
+    border: 2px solid rgb(28, 184, 117);
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 20px;
+    outline: none;
+    margin-bottom: 10px;
+}
+/* Add btn */
+.inputs #submit {
+    max-width: 100%;
+    width: 400px;
+    height: 45px;
+    border-radius: 20px;
+    border: none;
+    font-size: 23px;
+    cursor: pointer;
+    background-color: rgb(28, 184, 117);
+    color: hsl(0, 0%, 100%, 0.9);
+    margin-top: 10px;
+}
+/* Subtrct btn */
+.inputs #subtrct-btn {
+    max-width: 100%;
+    width: 400px;
+    height: 45px;
+    border-radius: 20px;
+    border: none;
+    font-size: 23px;
+    cursor: pointer;
+    background-color: rgb(28, 184, 117);
+    color: hsl(0, 0%, 100%, 0.9);
+    margin-top: 10px;
+}
+/* Multiply btn */
+.inputs #multiply-btn {
+    max-width: 100%;
+    width: 400px;
+    height: 45px;
+    border-radius: 20px;
+    border: none;
+    font-size: 23px;
+    cursor: pointer;
+    background-color: rgb(28, 184, 117);
+    color: hsl(0, 0%, 100%, 0.9);
+    margin-top: 10px;
+}
+/* Divide-btn btn */
+.inputs #divide-btn {
+    max-width: 100%;
+    width: 400px;
+    height: 45px;
+    border-radius: 20px;
+    border: none;
+    font-size: 23px;
+    cursor: pointer;
+    background-color: rgb(28, 184, 117);
+    color: hsl(0, 0%, 100%, 0.9);
+    margin-top: 10px;
+}
+#err_message {
+    font-size: 15px;
+    text-align: center;
+}
+.active {
+    border: 2px solid var(--header-bg-color_2);
+    padding: 13px 15px;
+}
+@media (max-width: 605px) {
+    main {
+        margin: 10px auto 0px auto;
+    }
+    .container {
+        background-color: var(--body-bg-color_2);
+        height: 550px;
+    }
+}

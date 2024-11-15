@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <div class="show-flx">
+                <div class="logo">
+                    <img src="assets/background-removed-image (1).png" draggable="false">
+                </div>    
+                <div class="light-dark-mode">
+                    <ion-icon id="light" name="sunny-outline"></ion-icon>
+                    <!-- light -->
+                    <img src="assets/light_mode_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" class="light">
+                    <!-- darck -->
+                    <img src="assets/dark_mode_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" class="dark">
+            </div>
+        </header>
+        <div class="container">
+            <div class="operator-types">
+                <button onclick="window.location='index.html'" class="operators" id="add">
+                    <a href="index.html>Addition">Addition</a> 
+                </button>
+                <button onclick="window.location='subtract.html'" class="operators" id="subtract">
+                    <a href="subtract.html">Subtraction</a> 
+                </button>
+                <button onclick="window.location='multiply.html'" class="operators" id="multiply">
+                    <a class="active" href="multiply.html">Multiplication</a> 
+                </button>
+                <button onclick="window.location='divide.html'" class="operators" id="divide">
+                    <a href="divide.html">Division</a> 
+                </button>
+            </div>
+            <!--  -->
+            <div class="subtract-contents">
+                <p class="rank-score">🏆 Rank:</p>
+                <h1 class="align-center--subtrct"></h1>
+                <div class="inputs">
+                        <input type="text" id="multiplyInput" autofocus autocomplete="off" placeholder="Enter Your Answer"><br>
+                        <p id="err_message"></p>
+                        <button type="button" id="multiply-btn">Submit</button>
+                        <audio src="assets/sounds/error-2-36058.mp3" id="wrong_answer"></audio>
+                        <audio src="assets/sounds/correct-6033.mp3" id="correct_answer"></audio>
+                </div>
+            </div>
+            <!--  -->
+        </div>
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        const rankEl = document.querySelector('.rank-score');
+        const input = document.getElementById('multiplyInput');
+        const btnEl = document.getElementById('multiply-btn');
+        const wrong_soundEl =  document.getElementById('wrong_answer');
+        const correct_soundEl =  document.getElementById('correct_answer');
+        const err2El =  document.getElementById('err_message');
+        const question =  document.querySelector('.align-center--subtrct');
+        const subtractRandom1 = Math.ceil(Math.random() * 50 + 1);
+        const subtractRandom2 = Math.ceil(Math.random() * 50 + 1);
+        const combinedRandoms = subtractRandom1 * subtractRandom2;
+        question.textContent = `What is (${subtractRandom1} * ${subtractRandom2}) ?`;
+        // get data from locaStorage
+        let rank = JSON.parse(localStorage.getItem("multiplication rank"));
+        if (!rank) {
+            rank = 0;
+        } 
+        rankEl.textContent = `🏆 Rank: ${rank}`;
+        // Target enter key to submit
+        input.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                console.log("you clicked enter");
+                multiplication();
+            }
+        });
+        btnEl.addEventListener("click", multiplication);
+        function multiplication() {
+            if (+input.value === combinedRandoms) {
+               correct_soundEl.play();
+                rankEl.textContent = `🏆 Rank: ${rank+=2}`;
+                updateStorage();
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            } else if (!input.value) {
+                err2El.textContent = 'Enter you answer 👆';
+            } else {
+                input.addEventListener("input", () => {
+                    err2El.textContent = '';
+                });
+                err2El.textContent = '';
+                wrong_soundEl.play();
+                updateStorage();
+            }
+            input.value = '';
+            // set data to localStorage
+        function updateStorage() {
+            localStorage.setItem("multiplication rank", JSON.stringify(rank));
+        }
+        }
+    </script>
+</body>
+</html>

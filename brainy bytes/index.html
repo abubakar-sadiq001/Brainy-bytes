@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainy Bytes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/background-removed-image (1).png" type="image/x-icon">
+    <!-- Srvice worker script -->
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js');
+          });
+        }
+      </script>  
+</head>
+<body>
+    <main>
+        <header>
+            <div class="show-flx">
+                <div class="logo">
+                    <img src="assets/background-removed-image (1).png" draggable="false">
+                </div>                    
+                <div class="light-dark-mode">
+                    <!-- light -->
+                    <img src="assets/light_mode_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" draggable="false" class="light">
+                    <!-- darck -->
+                    <img src="assets/dark_mode_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" class="dark">
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="operator-types">
+                <button onclick="window.location='index.html'" class="operators" id="add">
+                    <a class="active" id="anchor-white" href="#">Addition</a> 
+                </button>
+                <button onclick="window.location='subtract.html'" class="operators" id="subtract">
+                    <a href="subtract.html">Subtraction</a> 
+                </button>
+                <button onclick="window.location='multiply.html'" class="operators" id="multiply">
+                    <a href="multiply.html">Multiplication</a> 
+                </button>
+                <button onclick="window.location='divide.html'" class="operators" id="divide">
+                    <a href="divide.html">Division</a> 
+                </button>
+            </div>
+            <!--  -->
+            <div class="addition-contents">
+                <p class="rank-score">🏆 Rank:</p>
+                <h1 class="align-center"></h1>
+                <div class="inputs">
+                        <input type="text" id="myInput" autofocus autocomplete="off" placeholder="Enter Your Answer"><br>
+                        <p id="err_message"></p>
+                        <button type="submit" id="submit">Submit</button>
+                        <audio src="assets/sounds/error-2-36058.mp3" id="wrong_answer"></audio>
+                        <audio src="assets/sounds/correct-6033.mp3" id="correct_answer"></audio>
+                </div>
+            </div>
+            <!--  -->
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
